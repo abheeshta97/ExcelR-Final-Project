@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Predictions for User Provided URL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class = 'top'>
+		ExcelR Group 1 Project
+	</div>
+	<div class = 'date'>
+		{{ today }}
+	</div>
+	<br>
+	<div align = 'center'>
+		<a href='{{ url_for('home') }}' class="btn-grp">Home</a>
+		<a href='{{ url_for('result') }}' class="btn-grp">Predict Latest Reviews</a>
+		<a href='{{ url_for('input_text') }}' class="btn-grp">Input Review</a>
+		<a href='{{ url_for('input_url') }}' class="btn-grp">Input Product URL</a>
+		<a href='{{ url_for('scraper') }}' class="btn-grp">Update Data</a>
+	</div>
+
+	<h1>
+		<div class = 'heading'>
+			Predictions for <a href = {{ url_by_user }}>Given Product</a>
+		</div>
+	</h1>
+	<div class = 'details'>
+		{{ total }} reviews have been extracted. There are {{ pos }} positive, {{ neg }} negative and {{ neu }} neutral reviews
+		<br>
+		All reviews for this product have been saved to "User_Product.csv" in the project folder
+		<br>
+		Below are the 30 latest reviews for this product
+	</div>
+	<br>
+	<div class = 'table-data'>
+		{% for table in tables %}
+			{{ titles }}
+			{{ table|safe }}
+		{% endfor %}
+	</div>
+</body>
+</html>

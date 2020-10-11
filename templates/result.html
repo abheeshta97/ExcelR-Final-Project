@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Predictions for Default Product</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class = 'top'>
+		ExcelR Group 1 Project
+	</div>
+	<div class = 'date'>
+		{{ today }}
+	</div>
+	<br>
+	<div align = 'center'>
+		<a href='{{ url_for('home') }}' class="btn-grp">Home</a>
+		<a href='{{ url_for('result') }}' class="btn-grp">Predict Latest Reviews</a>
+		<a href='{{ url_for('input_text') }}' class="btn-grp">Input Review</a>
+		<a href='{{ url_for('input_url') }}' class="btn-grp">Input Product URL</a>
+		<a href='{{ url_for('scraper') }}' class="btn-grp">Update Data</a>
+	</div>
+
+	<h1>
+		<div class = 'heading'>
+			Predictions for the Latest Reviews
+		</div>
+	</h1>
+	<h3>
+		<div class = 'details'>
+			If there are less than or equal to 10 reviews this week, the latest 20 reviews will be displayed
+			<br>
+			There are {{ new_reviews }} new reviews this week
+		</div>
+	</h3>
+	<div class = 'table-data'>
+		{% for table in tables %}
+			{{ titles }}
+			{{ table|safe }}
+		{% endfor %}
+	</div>
+</body>
+</html>

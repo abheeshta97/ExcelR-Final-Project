@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input Your URL</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<div class = 'top'>
+		ExcelR Group 1 Project
+	<div class = 'date'>
+		{{ today }}
+	</div>
+	<br>
+	<div align = 'center'>
+		<a href='{{ url_for('home') }}' class="btn-grp">Home</a>
+		<a href='{{ url_for('result') }}' class="btn-grp">Predict Latest Reviews</a>
+		<a href='{{ url_for('input_text') }}' class="btn-grp">Input Review</a>
+		<a href='{{ url_for('input_url') }}' class="btn-grp">Input Product URL</a>
+		<a href='{{ url_for('scraper') }}' class="btn-grp">Update Data</a>
+	</div>
+
+	<h1>
+		<div class = 'heading'>
+			Enter URL of Amazon Product
+		</div>
+	</h1>
+	<h1>
+		<div class = 'heading'>
+			Instructions
+		</div>
+	</h1>
+	<div class = 'list-div' align = 'center'>
+		<ol style="decimal">
+			<li>Go to www.amazon.in</li>
+			<li>Enter your choice of product in the search bar and click "Enter"</li>
+			<li>Click on the product of your choice</li>
+			<li>Wait for the page to load and copy the URL from the address bar of your browser</li>
+			<li>Paste the URL to the text box below and click "Extract & Predict"</li>
+		</ol>
+	</div>
+	<div align = "center">
+		<form action="{{ url_for('input_url')}}" method="POST">
+		<textarea name="user_url" rows="4" cols="50" placeholder="Enter URL Here" class = 'text-box'></textarea>
+		<br>
+		<br>
+		<div align = "center">
+			<button type="submit" formaction="{{ url_for('input_url')}}" class = 'btn-grp'>Extract & Predict</button>
+		</div>
+	</div>
+	<br>
+	<div class = 'details'>
+		NOTE: Extracting reviews will take 5-10 minutes,<br>depending on the number of reviews for the given product
+	</div>
+</body>
+</html>
