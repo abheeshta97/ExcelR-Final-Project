@@ -1,4 +1,4 @@
-# Project: Review Analysis for a Given Product on Amazon
+# ExcelR Project: Review Analysis for a Given Product on Amazon
 # Objective
 Analyzing customer reviews of a given product on Amazon and building a model to classify reviews according to sentiment (Positive, Negative or Neutral). The reviews should be automatically updated every week.
 # Tools/Tech Used
